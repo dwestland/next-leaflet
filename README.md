@@ -1,12 +1,6 @@
-# next-typescript-prettier-eslint
+# next-leaflet
 
 ## Notes from creating this repository
-
-**Install App**
-
-```
-npx create-next-app <app name>
-```
 
 **Start dev:**
 
@@ -14,142 +8,77 @@ npx create-next-app <app name>
 npm run dev
 ```
 
-```
-sudo npm i -g typescript
-```
+Install dependencies:
 
 ```
-npm i -g eslint
+npm i leaflet react-leaflet
 ```
 
-**Create a tsconfig.json file, restart**
-
-**Install dependencies:**
+Install dev dependencies:
 
 ```
-npm i --dev typescript @types/react @types/node
+npm i -D @types/leaflet
 ```
 
-**Rename index.js to index.tsx**
+Add a `pages/_document.tsx` file and include the following in the `<head>` :
 
-**Add ESLint:**
-
-```
-npm i --dev eslint
-```
-
-**Configure ESLint:**
-
-```
-npx eslint --init
+```html
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+  integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+  crossorigin=""
+/>
 ```
 
-**To check syntax, find problems, and enforce code style, JavaScript modules (import/export), React, Yes, Browser, Use a popular style guide, Airbnb, JavaScript**
+Add CSS styles
 
-**Add to eslintrc.js to avoid React detection bug:**
-
-```js
-  settings: {
-    react: {
-      version: "latest",
-    },
-  },
-```
-
-**Install Prettier:**
-
-```
-npm i --dev prettier
-```
-
-**Avoid conflicts with Prettier using eslint-config-prettier:**
-
-```
-npm i --dev eslint-config-prettier
-```
-
-**Add prettier to the extends array in the eslintrc.js file:**
-
-```js
-  'extends': [
-    'plugin:react/recommended',
-    'google',
-    'prettier'
-  ]
-```
-
-**For customizing Prettier Rules, create a .prettierrc file in root and add rules**
-
-```js
-{
-  "endOfLine": "lf",
-  "printWidth": 80,
-  "semi": false,
-  "singleQuote": true,
-  "tabWidth": 2,
-  "trailingComma": "es5"
+```css
+.leaflet-container {
+  margin: auto;
+  width: 600px;
+  height: 600px;
 }
 ```
 
-**Add .eslintignore and .prettierignore to not apply linting to certain files (optional)**
-
-**Install ESLint and Prettier VS Code plugins**
-
-**Modify VS Code settings: Code > Preferences > Settings and search for "Editor:default formatter" and select "Prettier - Code formatter". Also search for "format on" and check "Format on Paste" and "Format on Save".**
-
-**Close VS Code file and re-open**
-
-**Check index.tsx for errors, Add:**
+Add Map component
 
 ```js
 import React from 'react'
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
-/**
- * This is the Home Page
- * @return {JSX.Element}: The JSX Code for the Home Page
- */
+const Map = () => (
+  <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+    <TileLayer
+      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
+    <Marker position={[51.505, -0.09]}>
+      <Popup>
+        A pretty CSS3 popup. <br /> Easily customizable.
+      </Popup>
+    </Marker>
+  </MapContainer>
+)
+
+export default Map
 ```
 
-**Add to the .eslintrc.js file to remove errors:**
+Use a dynamic Map import for SSR
 
 ```js
-  rules: {
-    "react/jsx-filename-extension": [1, { extensions: [".tsx", ".ts"] }],
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error"],
-  },
-```
+import React from 'react'
+import dynamic from 'next/dynamic'
 
-**Reformat the code using Prettier, install if necessary:**
-
-```
-npm i -g prettier
-```
-
-```
-prettier --write .
-```
-
-**Evoke ESLint and Prettier on save, create a /.vscode/settings.json file:**
-
-```js
-{
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.format": true
-  }
+function HomePage() {
+  const Map = dynamic(() => import('../src/components/Map'), { ssr: false })
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <Map />
+    </div>
+  )
 }
+
+export default HomePage
 ```
-
-**Done**
-
-### Settings are from:
-
-**How To Setup Next.JS with TypeScript, Prettier, ESLint and Husky**
-
-https://www.youtube.com/watch?v=sH93pQb9bWM
-
-https://github.com/jarrodwatts/code-like-google

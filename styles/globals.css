@@ -14,3 +14,9 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.leaflet-container {
+  margin: auto;
+  width: 600px;
+  height: 600px;
+}
