@@ -8,7 +8,7 @@ const ClickMap = () => {
   return (
     <>
       <p>
-        {clickLat} {clickLng}
+        {clickLat.toFixed(4)}&#176; {clickLng.toFixed(4)}&#176;
       </p>
 
       <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>

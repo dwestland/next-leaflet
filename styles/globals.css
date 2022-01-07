@@ -6,17 +6,30 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
+body {
+  padding: 0 30px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* a {
   color: inherit;
   text-decoration: none;
-}
+} */
 
 * {
   box-sizing: border-box;
 }
 
+/* Styling for all maps */
 .leaflet-container {
   margin: auto;
   width: 600px;
   height: 600px;
 }
+
+/* Custom icon */
+/* .leaflet-div-icon {
+  background: transparent;
+  border: none;
+} */

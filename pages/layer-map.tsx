@@ -4,17 +4,15 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import Nav from '@/components/Nav'
 
-function ClickForLatLong() {
-  const ClickMap = dynamic(() => import('@/components/ClickMap'), {
-    ssr: false,
-  })
+function LayerMap() {
+  const Map = dynamic(() => import('@/components/Map'), { ssr: false })
   return (
     <div>
-      <h1>Click on Map for Lat / Long</h1>
-      <ClickMap />
+      <h1>Layer Map</h1>
+      <Map />
       <Nav />
     </div>
   )
 }
 
-export default ClickForLatLong
+export default LayerMap
