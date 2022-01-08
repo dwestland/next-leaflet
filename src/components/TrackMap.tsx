@@ -35,13 +35,13 @@ const TrackMap = () => {
 
   return (
     <>
-      <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+      <MapContainer center={[33.9765, -118.4483]} zoom={14}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[51.505, -0.09]}>
-          {/* <Marker position={[51.505, -0.09]} icon={myIcon}> */}
+        <Marker position={[33.9765, -118.4483]}>
+          {/* <Marker position={[33.9765, -118.4483]} icon={myIcon}> */}
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>

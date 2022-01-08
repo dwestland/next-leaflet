@@ -11,12 +11,12 @@ const ClickMap = () => {
         {clickLat.toFixed(4)}&#176; {clickLng.toFixed(4)}&#176;
       </p>
 
-      <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+      <MapContainer center={[33.9765, -118.4483]} zoom={14}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/* <Marker position={[51.505, -0.09]}>
+        {/* <Marker position={[33.97, -118.44]}>
       <Popup>
         A pretty CSS3 popup. <br /> Easily customizable.
       </Popup>
