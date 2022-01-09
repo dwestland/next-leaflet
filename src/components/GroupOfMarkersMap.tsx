@@ -28,7 +28,11 @@ const GroupOfMarkersMap = () => {
       />
       {vectors.map((vector) => (
         <Marker key={vector.name} position={[vector.lat, vector.lng]}>
-          <Popup>{vector.name}</Popup>
+          <Popup>
+            <div>
+              <h3>{vector.name}</h3>
+            </div>
+          </Popup>
         </Marker>
       ))}
     </MapContainer>

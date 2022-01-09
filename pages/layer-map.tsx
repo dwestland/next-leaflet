@@ -5,10 +5,12 @@ import dynamic from 'next/dynamic'
 import Nav from '@/components/Nav'
 
 function LayerMap() {
-  const Map = dynamic(() => import('@/components/Map'), { ssr: false })
+  const Map = dynamic(() => import('@/components/layerMap'), {
+    ssr: false,
+  })
   return (
     <div>
-      <h1>Layer Map</h1>
+      <h1>Layer layerMap</h1>
       <Map />
       <Nav />
     </div>
