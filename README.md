@@ -4,21 +4,21 @@
 
 **Start dev:**
 
+Installed @react-leaflet/core
+
 Installed leaflet-defaulticon-compatibility - Did not work
 
 Latitude and Longitude Distance
 
-One degree Latitude is about 69 miles or 364,000 feet.
+One degree Latitude is about 69 miles or 364,000 feet at the equator.
 
 Decimals:
 
 0.1 = about 7 miles or 36,400 feet
-
-0.01 = 3,640 feet
-0.01 = 3,640 feet
-0.001 = 364 feet
-0.0001 = 364 feet
-0.00001 = 36 feet
+0.01 = about 3,640 feet
+0.01 = about 3,640 feet
+0.001 = about 364 feet
+0.0001 = about 36 feet
 
 ```
 npm run dev

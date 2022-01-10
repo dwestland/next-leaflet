@@ -24,6 +24,11 @@ const Nav = () => (
     <Link href="/group-of-markers-map">
       <a>Group of Markers Map</a>
     </Link>
+
+    <br />
+    <Link href="/map-search">
+      <a>Map Search</a>
+    </Link>
   </div>
 )
 

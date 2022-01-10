@@ -4,17 +4,17 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import Nav from '@/components/Nav'
 
-const LayerMapPage = () => {
-  const LayerMap = dynamic(() => import('@/components/LayerMap'), {
+function HomePage() {
+  const MapSearch = dynamic(() => import('@/components/MapSearch'), {
     ssr: false,
   })
   return (
     <div>
-      <h1>Layer Map</h1>
-      <LayerMap />
+      <h1>Map Search</h1>
+      <MapSearch />
       <Nav />
     </div>
   )
 }
 
-export default LayerMapPage
+export default HomePage
