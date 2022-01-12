@@ -2,53 +2,31 @@
 /* eslint-disable import/extensions */
 import React from 'react'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
-import Nav from '@/components/Nav'
-
+import { Icon } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-// import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.webpack.css' // Re-uses images from ~leaflet package
-// import 'leaflet-defaulticon-compatibility'
+const TrackMap = ({ lat, lng }) => {
+  const myIcon = new Icon({
+    iconUrl: '/iss.png',
+    iconSize: [100, 53],
+  })
 
-// import { Icon } from 'leaflet'
-// import marker from '../../public/iss200.png'
-
-const TrackMap = () => {
-  console.log('boom')
-
-  // const myIcon = new Icon({
-  // iconUrl: marker,
-  // iconRetinaUrl: marker,
-  // iconSize: [64, 64],
-  // iconAnchor: [32, 64],
-  // popupAnchor: null,
-  // shadowUrl: null,
-  // shadowSize: null,
-  // shadowAnchor: null,
-  // })
-
-  // const myIcon = new Icon({
-  //   iconUrl: require('../../public/iss200.png'),
-  //   iconSize: [30, 30],
-  // })
-
-  // const myIcon = Icon({ iconUrl: '../../public/iss200.png' })
+  console.log('lat2', lat)
+  console.log('lng2', lng)
 
   return (
-    <>
-      <MapContainer center={[33.9765, -118.4483]} zoom={14}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={[33.9765, -118.4483]}>
-          {/* <Marker position={[33.9765, -118.4483]} icon={myIcon}> */}
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-      </MapContainer>
-      <Nav />
-    </>
+    <MapContainer center={[lat, lng]} zoom={4}>
+      <TileLayer
+        attribution="Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC"
+        url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
+      />
+      <Marker position={[lat, lng]} icon={myIcon}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker>
+    </MapContainer>
   )
 }
+
 export default TrackMap
