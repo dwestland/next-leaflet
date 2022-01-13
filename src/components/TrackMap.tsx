@@ -5,23 +5,57 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-const TrackMap = ({ lat, lng, positionArray }) => {
-  const myIcon = new Icon({
+const positionArray = []
+
+interface TrackMapProps {
+  lat: number
+  lng: number
+}
+
+const TrackMap: React.FC<TrackMapProps> = ({ lat, lng }) => {
+  const issIcon = new Icon({
     iconUrl: '/iss.png',
     iconSize: [100, 53],
   })
+  const dotIcon = new Icon({
+    iconUrl: '/dot.png',
+    iconSize: [9, 9],
+  })
+
+  console.log('%c lat ', 'background: green; color: white', lat)
+  console.log('%c lng ', 'background: green; color: white', lng)
+
+  useEffect(() => {
+    positionArray.push([lat, lng])
+  }, [lat])
+
+  console.log(
+    '%c positionArray ',
+    'background: green; color: white',
+    positionArray
+  )
 
   return (
-    <MapContainer center={[lat, lng]} zoom={6}>
+    <MapContainer center={[lat, lng]} zoom={8}>
       <TileLayer
         attribution="Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC"
         url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
       />
-      <Marker position={[lat, lng]} icon={myIcon}>
+      <Marker position={[lat, lng]} icon={issIcon}>
         <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
+          International <br />
+          Space Station
         </Popup>
       </Marker>
+      {positionArray.map((position) => (
+        <Marker key={position[0]} position={position} icon={dotIcon}>
+          <Popup>
+            <div>
+              <p>marker</p>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
   )
 }
