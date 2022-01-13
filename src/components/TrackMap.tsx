@@ -1,11 +1,11 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable import/extensions */
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 import { Icon } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 
-const TrackMap = ({ lat, lng }) => {
+const TrackMap = ({ lat, lng, positionArray }) => {
   const myIcon = new Icon({
     iconUrl: '/iss.png',
     iconSize: [100, 53],
