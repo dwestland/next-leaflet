@@ -11,11 +11,8 @@ const TrackMap = ({ lat, lng }) => {
     iconSize: [100, 53],
   })
 
-  console.log('lat2', lat)
-  console.log('lng2', lng)
-
   return (
-    <MapContainer center={[lat, lng]} zoom={4}>
+    <MapContainer center={[lat, lng]} zoom={6}>
       <TileLayer
         attribution="Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC"
         url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
