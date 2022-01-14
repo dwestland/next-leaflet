@@ -1,5 +1,7 @@
 import React from 'react'
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import MarkerClusterGroup from 'react-leaflet-markercluster'
+import 'react-leaflet-markercluster/dist/styles.min.css'
 
 // 33.9765, -118.4483
 
@@ -26,15 +28,17 @@ const GroupOfMarkersMap = () => {
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {vectors.map((vector) => (
-        <Marker key={vector.name} position={[vector.lat, vector.lng]}>
-          <Popup>
-            <div>
-              <h3>{vector.name}</h3>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      <MarkerClusterGroup>
+        {vectors.map((vector) => (
+          <Marker key={vector.name} position={[vector.lat, vector.lng]}>
+            <Popup>
+              <div>
+                <h3>{vector.name}</h3>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MarkerClusterGroup>
     </MapContainer>
   )
 }

@@ -7,12 +7,12 @@ import 'leaflet/dist/leaflet.css'
 
 const positionArray = []
 
-interface TrackMapProps {
+interface TrackMapStaticProps {
   lat: number
   lng: number
 }
 
-const TrackMap: React.FC<TrackMapProps> = ({ lat, lng }) => {
+const TrackMapStatic: React.FC<TrackMapStaticProps> = ({ lat, lng }) => {
   const issIcon = new Icon({
     iconUrl: '/iss.png',
     iconSize: [100, 53],
@@ -37,8 +37,16 @@ const TrackMap: React.FC<TrackMapProps> = ({ lat, lng }) => {
     positionArray
   )
 
+  let startingLat = 0
+  let startingLng = 0
+
+  if (positionArray.length > 0) {
+    // eslint-disable-next-line prefer-destructuring
+    ;[startingLat, startingLng] = positionArray[0]
+  }
+
   return (
-    <MapContainer center={[lat, lng]} zoom={8}>
+    <MapContainer center={[startingLat, startingLng]} zoom={8}>
       <TileLayer
         attribution="Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC"
         url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"
@@ -62,4 +70,4 @@ const TrackMap: React.FC<TrackMapProps> = ({ lat, lng }) => {
   )
 }
 
-export default TrackMap
+export default TrackMapStatic

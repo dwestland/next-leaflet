@@ -16,13 +16,17 @@ const Nav = () => (
       <a>Track Object</a>
     </Link>
     <br />
+    <Link href="/track-object-static">
+      <a>Track Object - Static</a>
+    </Link>
+    <br />
     <Link href="/layer-map">
       <a>Layer Map</a>
     </Link>
 
     <br />
     <Link href="/group-of-markers-map">
-      <a>Group of Markers Map</a>
+      <a>Group of Markers Map with Marker Clustering</a>
     </Link>
 
     <br />

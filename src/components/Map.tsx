@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer, Tooltip } from 'react-leaflet'
 
 const Map = () => (
   <MapContainer center={[33.9765, -118.4483]} zoom={14}>
@@ -11,6 +11,9 @@ const Map = () => (
       <Popup>
         A pretty CSS3 popup. <br /> Easily customizable.
       </Popup>
+      <Tooltip direction="bottom" offset={[-10, 40]}>
+        Tooltip for Marker
+      </Tooltip>
     </Marker>
   </MapContainer>
 )
