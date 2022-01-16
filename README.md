@@ -120,8 +120,10 @@ npm i esir-leaflet esri-leaflet-geocoder
 
 **Mark Clusters Feature**
 
+Install dependencies:
+
 ```
-react-leaflet-markercluster
+npm i react-leaflet-markercluster
 ```
 
 **Latitude and Longitude Distance Info**
