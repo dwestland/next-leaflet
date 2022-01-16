@@ -29,7 +29,7 @@ function TrackObject() {
 
   useEffect(() => {
     const interval = setInterval(() => fetchPosition(), 1000)
-    // destroy interval on unmount
+
     return () => clearInterval(interval)
   }, [])
 

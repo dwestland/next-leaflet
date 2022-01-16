@@ -28,12 +28,6 @@ const TrackMapStatic: React.FC<TrackMapStaticProps> = ({ lat, lng }) => {
     }
   }, [lat])
 
-  console.log(
-    '%c positionArray ',
-    'background: green; color: white',
-    positionArray
-  )
-
   let startingLat = 0
   let startingLng = 0
 
