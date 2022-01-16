@@ -4,7 +4,7 @@ import React from 'react'
 import { MapContainer, TileLayer } from 'react-leaflet'
 import GeoSearch from '@/components/EsriLeafletGeoSearch'
 
-const Map = (props) => (
+const Map = () => (
   <MapContainer
     doubleClickZoom={false}
     // id="mapId"

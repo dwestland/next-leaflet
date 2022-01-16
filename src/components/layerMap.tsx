@@ -34,6 +34,12 @@ const LayerMap = () => (
           url="https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"
         />
       </LayersControl.BaseLayer>
+      <LayersControl.BaseLayer name="Light Gray">
+        <TileLayer
+          url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+          attribution="Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri"
+        />
+      </LayersControl.BaseLayer>
       <LayersControl.BaseLayer name="Dark Mode">
         <TileLayer
           attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> contributors'

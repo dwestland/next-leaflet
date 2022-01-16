@@ -22,20 +22,11 @@ const TrackMap: React.FC<TrackMapProps> = ({ lat, lng }) => {
     iconSize: [6, 6],
   })
 
-  console.log('%c lat ', 'background: green; color: white', lat)
-  console.log('%c lng ', 'background: green; color: white', lng)
-
   useEffect(() => {
     if (lat !== 0) {
       positionArray.push([lat, lng])
     }
   }, [lat])
-
-  console.log(
-    '%c positionArray ',
-    'background: green; color: white',
-    positionArray
-  )
 
   return (
     <MapContainer center={[lat, lng]} zoom={9}>

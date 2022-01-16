@@ -22,9 +22,6 @@ const TrackMapStatic: React.FC<TrackMapStaticProps> = ({ lat, lng }) => {
     iconSize: [6, 6],
   })
 
-  console.log('%c lat ', 'background: green; color: white', lat)
-  console.log('%c lng ', 'background: green; color: white', lng)
-
   useEffect(() => {
     if (lat !== 0) {
       positionArray.push([lat, lng])

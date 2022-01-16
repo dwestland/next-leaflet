@@ -17,10 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["src/components/*"]
-      // "@/constants/*": ["src/constants/*"]
     }
   },
-  // "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"], ???
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }
