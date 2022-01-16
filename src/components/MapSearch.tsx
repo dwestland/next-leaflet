@@ -1,21 +1,23 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import React from 'react'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { MapContainer, TileLayer } from 'react-leaflet'
+import GeoSearch from '@/components/EsriLeafletGeoSearch'
 
-const MapSearch = () => {
-  console.log('Mapsearch')
+const Map = (props) => (
+  <MapContainer
+    doubleClickZoom={false}
+    // id="mapId"
+    zoom={14}
+    center={[33.9765, -118.4483]}
+  >
+    <TileLayer
+      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    />
 
-  return (
-    <MapContainer center={[33.9765, -118.4483]} zoom={14}>
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={[33.9765, -118.4483]}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
-    </MapContainer>
-  )
-}
-export default MapSearch
+    <GeoSearch useMapBounds={false} />
+  </MapContainer>
+)
+
+export default Map

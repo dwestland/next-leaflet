@@ -38,7 +38,7 @@ const TrackMap: React.FC<TrackMapProps> = ({ lat, lng }) => {
   )
 
   return (
-    <MapContainer center={[lat, lng]} zoom={8}>
+    <MapContainer center={[lat, lng]} zoom={9}>
       <TileLayer
         attribution="Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC"
         url="https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}"

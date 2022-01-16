@@ -4,7 +4,9 @@
 
 Installed react-leaflet-markercluster for MarkerCluster for Group of Markers
 
-Installed esri-leaflet-geocoder ???
+**ESRI Search**
+
+Installed esri-leaflet-geocoder esir-leaflet
 
 **Latitude and Longitude Distance**
 
