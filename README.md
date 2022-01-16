@@ -1,44 +1,16 @@
 # next-leaflet
 
-## Notes from creating this repository
-
-Installed react-leaflet-markercluster for MarkerCluster for Group of Markers
-
-**ESRI Search**
-
-Installed esri-leaflet-geocoder esir-leaflet
-
-**Latitude and Longitude Distance**
-
-One degree Latitude is about 69 miles or 364,000 feet at the equator.
-
-Decimals:
-
-- 0.1 = about 7 miles or 36,400 feet
-- 0.01 = about 3,640 feet
-- 0.01 = about 3,640 feet
-- 0.001 = about 364 feet
-- 0.0001 = about 36 feet
-
-**Start dev:**
+**Start dev environment:**
 
 ```
 npm run dev
 ```
 
-Install dependencies:
+## Notes from creating repository
 
-```
-npm i leaflet react-leaflet
-```
+**Leaflet**
 
-Install dev dependencies:
-
-```
-npm i -D @types/leaflet
-```
-
-Add a `pages/_document.tsx` file and include the following in the `<head>` :
+Add to head in index.html or in Next.js, add to head in pages/\_document.tsx:
 
 ```html
 <link
@@ -49,17 +21,38 @@ Add a `pages/_document.tsx` file and include the following in the `<head>` :
 />
 ```
 
-Add CSS styles
+Install dependencies:
 
-```css
-.leaflet-container {
-  margin: auto;
-  width: 600px;
-  height: 600px;
-}
+```
+npm i leaflet react-leaflet
 ```
 
-Add Map component
+For TypeScript, install dev dependency:
+
+```
+npm i -D @types/leaflet
+```
+
+**Create page. Use a dynamic Map import for Next.js SSR**
+
+```js
+import React from 'react'
+import dynamic from 'next/dynamic'
+
+function HomePage() {
+  const Map = dynamic(() => import('../src/components/Map'), { ssr: false })
+  return (
+    <div>
+      <h1>Home Page</h1>
+      <Map />
+    </div>
+  )
+}
+
+export default HomePage
+```
+
+**Add Map component**
 
 ```js
 import React from 'react'
@@ -82,21 +75,63 @@ const Map = () => (
 export default Map
 ```
 
-Use a dynamic Map import for SSR
+Add CSS styles
 
-```js
-import React from 'react'
-import dynamic from 'next/dynamic'
-
-function HomePage() {
-  const Map = dynamic(() => import('../src/components/Map'), { ssr: false })
-  return (
-    <div>
-      <h1>Home Page</h1>
-      <Map />
-    </div>
-  )
+```css
+.leaflet-container {
+  margin: auto;
+  width: 600px;
+  height: 600px;
 }
-
-export default HomePage
 ```
+
+Latitude and Longitude parameters can be an object:
+
+```
+{
+  {
+    lat: 33.9765,
+    lng: -118.4483
+  }
+}
+```
+
+or an array:
+
+```
+{
+  [33.9765, -118.4483]
+}
+```
+
+**ESRI Search Feature**
+
+Add to head in index.html or in Next.js, add to head in pages/\_document.tsx:
+
+```
+<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css" />
+```
+
+Install dependencies:
+
+```
+npm i esir-leaflet esri-leaflet-geocoder
+```
+
+**Mark Clusters Feature**
+
+```
+react-leaflet-markercluster
+```
+
+**Latitude and Longitude Distance Info**
+
+One degree Latitude is about 69 miles or 364,000 feet at the equator.
+
+Decimals:
+
+- 0.1 = about 7 miles or 36,400 feet
+- 0.01 = about 3,640 feet
+- 0.01 = about 3,640 feet
+- 0.001 = about 364 feet
+- 0.0001 = about 36 feet
