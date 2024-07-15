@@ -31,7 +31,8 @@ const LayerMap = () => (
       <LayersControl.BaseLayer name="Watercolor">
         <TileLayer
           attribution='&copy; <a href="http://stamen.com">Stamen Design</a> contributors'
-          url="https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"
+          // eslint-disable-next-line no-template-curly-in-string
+          url="https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg?api_key=`${process.env.STADIA_API_KEY}`"
         />
       </LayersControl.BaseLayer>
       <LayersControl.BaseLayer name="Light Gray">
